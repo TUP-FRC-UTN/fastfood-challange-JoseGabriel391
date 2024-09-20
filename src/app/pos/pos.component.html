@@ -1,0 +1,13 @@
+<div>
+    <h2>Point of Sell - POS</h2>
+
+    <label for="name">Nombre: </label>
+    <input id="name" [(ngModel)] = "name" required>
+    <br>
+    <br>
+    <label for="description">Pedido: </label>
+    <input id="description" [(ngModel)] = "description" required>
+    <br>
+    <br>
+    <button (click)="agregarPedido()">Ordenar</button>
+</div>

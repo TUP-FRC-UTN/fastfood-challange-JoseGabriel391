@@ -1,0 +1,18 @@
+<h1>Restaurant FastFood</h1>
+
+
+
+<h2>Pedidos ingresados</h2>
+<ul>
+    <li *ngFor="let pedido of pedidos">
+        {{pedido.nroPedido}} - {{pedido.name}}: {{pedido.description}} ({{pedido.date | date: 'short'}})
+    </li>
+</ul>
+
+<app-pos (nuevoPedido)="onNuevoPedido($event)"></app-pos>
+<hr>
+<br>
+<app-kitchen [pedidos]="pedidos"></app-kitchen>
+<hr>
+<br>
+<app-delivery-point [pedidosListos]="pedidosListos"></app-delivery-point>
