@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Pedido } from '../pedido.model';
 import { PosComponent } from "../pos/pos.component";
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,7 @@ import { DeliveryPointComponent } from "../delivery-point/delivery-point.compone
   styleUrl: './restaurant.component.css'
 })
 export class RestaurantComponent {
-
+  @Output() pedidoOk = new EventEmitter<Pedido>();
   pedidos: Pedido[] = [];
   pedidosListos: Pedido[] = [];
 
@@ -24,7 +24,8 @@ export class RestaurantComponent {
 
   }
 
-  entregarPedido(pedido: Pedido){
-    this.pedidosListos.push(pedido)
+  onPedidoListo(pedido: Pedido){
+    this.pedidosListos.push(pedido);
+    this.pedidoOk.emit(pedido);
   }
 }

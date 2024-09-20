@@ -15,7 +15,7 @@ export class KitchenComponent {
   @Input() pedidos: Pedido[] = [];
   pedidosEnCoccion: Pedido[] = [];
 
-  @Output() pedidoListos = new EventEmitter<Pedido>();
+  @Output() pedidoListo = new EventEmitter<Pedido>();
 
   comenzarCoccion(pedido: Pedido){
     this.pedidos = this.pedidos.filter(p => p !== pedido);
@@ -24,6 +24,6 @@ export class KitchenComponent {
 
   finalizarCoccion(pedido: Pedido){
     this.pedidosEnCoccion = this.pedidosEnCoccion.filter(p => p !== pedido);
-    this.pedidoListos.emit(pedido);
+    this.pedidoListo.emit(pedido);
   }
 }

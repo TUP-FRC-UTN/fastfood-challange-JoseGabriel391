@@ -12,7 +12,7 @@
 <app-pos (nuevoPedido)="onNuevoPedido($event)"></app-pos>
 <hr>
 <br>
-<app-kitchen [pedidos]="pedidos"></app-kitchen>
+<app-kitchen [pedidos]="pedidos" (pedidoListo)="onPedidoListo($event)"></app-kitchen>
 <hr>
-<br>
+<br> 
 <app-delivery-point [pedidosListos]="pedidosListos"></app-delivery-point>
