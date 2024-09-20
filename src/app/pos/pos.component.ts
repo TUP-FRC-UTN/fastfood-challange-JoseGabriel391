@@ -17,14 +17,17 @@ export class PosComponent {
   @Output() nuevoPedido = new EventEmitter<Pedido>();
 
   agregarPedido(){
-    const nuevoPedido = new Pedido(
-      Math.floor(Math.random() * 1000) + 1,
-      this.name,
-      this.description,
-      new Date() 
-    );
-    this.nuevoPedido.emit(nuevoPedido);
-    this.name = '';
-    this.description = '';
+    if(this.name && this.description){
+
+      const nuevoPedido = new Pedido(
+        Math.floor(Math.random() * 1000) + 1,
+        this.name,
+        this.description,
+        new Date() 
+      );
+      this.nuevoPedido.emit(nuevoPedido);
+      this.name = '';
+      this.description = '';
+    }
   }
 }

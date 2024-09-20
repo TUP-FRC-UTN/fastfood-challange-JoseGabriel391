@@ -1,13 +1,21 @@
 <div>
     <h2>Point of Sell - POS</h2>
+    <form #posForm="ngForm">
 
-    <label for="name">Nombre: </label>
-    <input id="name" [(ngModel)] = "name" required>
-    <br>
-    <br>
-    <label for="description">Pedido: </label>
-    <input id="description" [(ngModel)] = "description" required>
-    <br>
-    <br>
-    <button (click)="agregarPedido()">Ordenar</button>
+        <label for="name">Nombre: </label>
+        <input id="name" [(ngModel)] = "name" name="name" required>
+        <div *ngIf="name.invalid && name.touched" class="text-danger">
+            El nombre es obligatorio.
+        </div>
+        <br>
+        <br>
+        <label for="description">Pedido: </label>
+        <input id="description" [(ngModel)] = "description" name="description" required>
+        <div *ngIf="description.invalid && description.touched" class="danger">
+            El pedido es requerido.
+        </div>
+        <br>
+        <br>
+        <button type="button" [disabled]="posForm.invalid" (click)="agregarPedido()">Ordenar</button>
+    </form>
 </div>
